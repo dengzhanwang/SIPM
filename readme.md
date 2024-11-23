@@ -10,7 +10,7 @@ This implementation serves two main purposes:
 
 The code includes implementations for:
 - Stochastic interior-point methods for conic optimization
-- Robust counterpart problem solving
+- Second-order cone programming (SOCP) experiments
 - Semidefinite programming experiments
 - Multi-task optimization scenarios
 
@@ -18,18 +18,22 @@ The code includes implementations for:
 
 ```
 .
+├── SDPT3-4.0/           # Third-party solver package required for comparison
 ├── base/                # Core implementation files for SIPM algorithms
 ├── data/               # Dataset files for experiments
 ├── result/             # Directory for storing experimental results
+├── src/                # Source code for main implementations
 ├── Test_SDP.m         # Main script for SDP experiments
+├── Test_socp.m        # Script for SOCP experiments
+├── Test_socp2.m       # Additional SOCP test script
 ├── multi_task.m       # Script for multi-task optimization experiments
-├── sto_ipm_socp1.m    # Implementation of stochastic IPM for SOCP
+└── readme.md          # Documentation file
 ```
 
 ### Directory Details:
 - `base/`: Contains the fundamental implementations of the SIPM algorithms
 - `data/`: Stores test datasets and benchmark problems
-- `rcp/`: Implements robust counterpart problem formulations
+- `src/`: Contains the source code for main algorithm implementations
 - `result/`: Stores experimental outputs and analysis results
 - `SDPT3-4.0/`: Contains the SDPT3 solver package used for comparison
 
@@ -48,20 +52,24 @@ The code includes implementations for:
 run Test_SDP.m
 ```
 
+### For SOCP Experiments:
+1. Start MATLAB
+2. Navigate to the repository root directory
+3. Execute either:
+```matlab
+run Test_socp.m
+```
+or
+```matlab
+run Test_socp2.m
+```
+
 ### For Multi-task Optimization:
 1. Start MATLAB
 2. Navigate to the repository root directory
 3. Execute:
 ```matlab
 run multi_task.m
-```
-
-### For Stochastic IPM SOCP:
-1. Start MATLAB
-2. Navigate to the repository root directory
-3. Run:
-```matlab
-run Test_socp.m
 ```
 
 ### Experiment Configuration
@@ -73,4 +81,5 @@ run Test_socp.m
 - All codes are implemented in MATLAB, so no compilation is necessary
 - Make sure all paths are properly set before running experiments
 - Check the `result/` directory for output files after running experiments
+
 
