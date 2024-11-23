@@ -1,0 +1,2 @@
+
+mu_update_itr15mu_fact1.35时间的几何平均值为:9.285,gamm1的值为0.5,gamm2的值为0.9
