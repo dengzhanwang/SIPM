@@ -17,10 +17,6 @@ for p = 1
 n0 = n0all(k);
 [blk, data, At ] = multitask_read2('winequality-red.csv','winequality-white.csv','ENB2012_data.xlsx','AirQualityUCI.xlsx','abalone.data',n0,p);
 
-% data_train = data.train_set;
-% label_train = data.train_label;
-% data_test = data.test_set;
-% label_test = data.test_label;
 
 opts.lambda1 = 1e-2;
 opts.lambda2 = 1e-2;
@@ -37,8 +33,7 @@ x0 = zeros(opts.n,p*5);
 opts.Amap = @(X) AXmap(X, blk, At);
 opts.ATmap = @(y) Atymap(y, blk, At);
 b = data.b;
-% x0(1) = 1000;
-% x0(opts.n + 2) = 1000;
+
 opts.numall =5*p;
 opts.m = 5*p;
 Omega0 = 1/opts.m*eye(opts.m,opts.m);
@@ -65,12 +60,12 @@ testtable(k,1,5) = norm(data.test_set5*out1.W(:,5) - data.test_label5)/norm(data
 
 norm(out1.W'*out1.W/trace(out1.W'*out1.W) - out1.Omega{1},'fro')
 
-% opts.maxiter = 5000;
+
 opts.methods = 'mom';
 opts.lr = @(i) min(max(4/i^(1/1.6),0.01),1);
 out2 = sto_ipm_multi_task3(blk,x0,data,At,b,opts);
 out2.ferror = out2.fval(end)/abs(out1.fval(1));
-% fvaltable(p,k,2) = out2.ferror;
+
 fvaltable(p,k,2) = out2.ferror;
 errortable(p,k,2) = out2.error(end)/out2.error(1);
 
@@ -84,7 +79,7 @@ traintable(k,2,4) = norm(data.train_set4*out2.W(:,4) - data.train_label4)/norm(d
 testtable(k,2,4) = norm(data.test_set4*out2.W(:,4) - data.test_label4)/norm(data.test_label4);
 traintable(k,2,5) = norm(data.train_set5*out2.W(:,5) - data.train_label5)/norm(data.train_label5);
 testtable(k,2,5) = norm(data.test_set5*out2.W(:,5) - data.test_label5)/norm(data.test_label5);
-% Changed line style to '-' and LineWidth increased
+
 
 
 opts.gamma = 0.9;
@@ -134,14 +129,14 @@ testtable(k,4,5) = norm(data.test_set5*out4.W(:,5) - data.test_label5)/norm(data
 
 figure(1)
 semilogy([1 out1.error(1:opts.numall:end-10)/max(out2.error(1:opts.numall:end))],'r:.' ,'LineWidth',3)
-% pause(0.5)
+
 hold on
 semilogy( out2.error(1:opts.numall:end)/max(out2.error(1:opts.numall:end)),'b-','LineWidth',3)
 
 semilogy(out3.error(1:opts.numall:end)/max(out2.error(1:opts.numall:end)),'k--','LineWidth',3) % Changed line style to '--' and LineWidth increased
 semilogy(out4.error(1:opts.numall:end)/max(out2.error(1:opts.numall:end)),'m-.','LineWidth',3) % Changed line style to '-.' and LineWidth increased
 %
- % ylim([2e-2 1])
+
 figure(2)
 semilogy((out1.fval(1:opts.numall:end))/abs(out1.fval(1)) ,'r:.' ,'LineWidth',3)
 hold on
@@ -197,9 +192,8 @@ traintable(k,6,5) = norm(data.train_set5*out2all.W(:,5) - data.train_label5)/nor
 testtable(k,6,5) = norm(data.test_set5*out2all.W(:,5) - data.test_label5)/norm(data.test_label5);
 
 
-% Set font size for labels and legend
+
 figure(1)
-% ylim([10e-7 1])
 set(gca, 'FontSize', 16) % Larger font size for axis ticks
 xlabel('epochs', 'FontSize', 22) % Larger font size for x-axis label
 ylabel('average relative stationary', 'FontSize', 22) % Larger font size for y-axis label
@@ -250,134 +244,87 @@ dataall = squeeze(traintable(2,:,:))'/2;
 dataall = rearrangeColumns(dataall);
 datasetstr = ["winequality-red","winequality-white","energy-efficency","airquality","abalone"];
 
-
-% 循环从1到5，为每个数字创建一个图表
-% for i = 1:5
-%     % 创建子图，指定边距保留空间
-%     subplot('Position', [0.15+(i-1)*0.15 0.1 0.13 0.8]);  % 调整每个子图的位置和大小
-% 
-%     % 获取当前图的数据
-%     datatmp = dataall(i,:);
-%     hold on;  % 保持当前图形，允许在上面继续绘图
-%     for j = 1:length(datatmp)
-%         b = bar(j, datatmp(j), 'DisplayName', ['Label ' num2str(j)]);  % 为每个条形赋予图例标签
-%         % 在每个条形图上方添加数字标签
-%         % text(j, data(j), num2str(data(j), '%.2f'), 'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', 'FontSize', 10);
-%     end
-%     hold off;  % 释放图形锁定
-% 
-%     % 调整y轴范围，确保标签可见
-%     ylim([0, max(datatmp)*1.2]);  
-%     xticks([]);
-%     if i == 1
-%     ylabel('relative objective', 'FontSize', 18)
-%     end
-%     % 设置标题（可选）
-%     title([datasetstr(i)], 'FontSize', 18);
-% end
-
 for i = 1:5
-    % 创建子图，指定边距保留空间
-    subplot('Position', [0.15+(i-1)*0.15 0.1 0.13 0.8]);  % 调整每个子图的位置和大小
-    
-    % 获取当前图的数据
+
+    subplot('Position', [0.15+(i-1)*0.15 0.1 0.13 0.8]); 
     datatmp = dataall(i,:);
-    hold on;  % 保持当前图形，允许在上面继续绘图
+    hold on;  
     for j = 1:length(datatmp)
-        bar(j, datatmp(j), 'DisplayName', ['Label ' num2str(j)]);  % 为每个条形赋予图例标签
-        % 在每个条形图上方添加数字标签
-        % text(j, datatmp(j), num2str(datatmp(j), '%.2f'), 'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', 'FontSize', 10);
+        bar(j, datatmp(j), 'DisplayName', ['Label ' num2str(j)]); 
     end
-    hold off;  % 释放图形锁定
+    hold off; 
     
-    % 设置y轴范围统一为0到0.5
+
     ylim([0, 0.5]);  
-    xticks([]);  % 清除x轴刻度
+    xticks([]);  
     
-    % 只为第一个子图设置y轴标签和刻度
+
     if i == 1
-        ylabel('loss per task', 'FontSize', 18);  % 设置y轴标签
-        set(gca, 'YTick', 0:0.1:0.5);  % 设置y轴刻度
+        ylabel('loss per task', 'FontSize', 18);  
+        set(gca, 'YTick', 0:0.1:0.5);  
     else
-        set(gca, 'YTick', []);  % 清除其他图的y轴刻度
+        set(gca, 'YTick', []);  
     end
     
-    % 设置标题（可选）
+
     title([datasetstr(i)], 'FontSize', 18);
 end
 
 
-% 在图形窗口中添加一个共同的图例
+
 legend('SIPM-ME$^1$','SIPM-ME$^+$','SIPM-PM','SIPM-EM','SIPM-RM','IPM-FG','AM', 'FontSize', 14,  'Location','best','Interpreter','latex')
 saveas(gcf,'multitask_train.png')
 
-% plot(squeeze(traintable(2,:,:))'/2,'LineWidth',2)
-% set(gca, 'FontSize', 16) % Larger font size for axis ticks
-% ylim([0.2,0.5])
-% legend('SIPM-ME$^1$','SIPM-PM','SIPM-EM','SIPM-RM','SIPM-ME$^+$','SIPM-Fu','AL', 'FontSize', 14,  'Location','southeast','Interpreter','latex') 
-% xlabel('tasks', 'FontSize', 22) % Larger font size for x-axis label
-% ylabel('relatve error', 'FontSize', 22) % Larger font size for x-axis label
+
 figure(4)
 dataall = squeeze(testtable(2,:,:))'/2;
 dataall = rearrangeColumns(dataall);
 datasetstr = ["winequality-red","winequality-white","energy-efficency","airquality","abalone"];
-figure('Position', [100, 100, 1600, 400]);  % 设置图形窗口的位置和大小
+figure('Position', [100, 100, 1600, 400]); 
 
-% 循环从1到5，为每个数字创建一个图表
+
 for i = 1:5
-    % 创建子图，指定边距保留空间
-    subplot('Position', [0.15+(i-1)*0.15 0.1 0.13 0.8]);  % 调整每个子图的位置和大小
-    
-    % 获取当前图的数据
+
+    subplot('Position', [0.15+(i-1)*0.15 0.1 0.13 0.8]); 
     datatmp = dataall(i,:);
-    hold on;  % 保持当前图形，允许在上面继续绘图
+    hold on;  
     for j = 1:length(datatmp)
-        bar(j, datatmp(j), 'DisplayName', ['Label ' num2str(j)]);  % 为每个条形赋予图例标签
-        % 在每个条形图上方添加数字标签
-        % text(j, datatmp(j), num2str(datatmp(j), '%.2f'), 'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', 'FontSize', 10);
-    end
-    hold off;  % 释放图形锁定
+        bar(j, datatmp(j), 'DisplayName', ['Label ' num2str(j)]); 
     
-    % 设置y轴范围统一为0到0.5
+    end
+    hold off; 
+
     ylim([0, 0.5]);  
-    xticks([]);  % 清除x轴刻度
+    xticks([]); 
     
-    % 只为第一个子图设置y轴标签和刻度
+
     if i == 1
-        ylabel('loss per task', 'FontSize', 18);  % 设置y轴标签
-        set(gca, 'YTick', 0:0.1:0.5);  % 设置y轴刻度
+        ylabel('loss per task', 'FontSize', 18); 
+        set(gca, 'YTick', 0:0.1:0.5); 
     else
-        set(gca, 'YTick', []);  % 清除其他图的y轴刻度
+        set(gca, 'YTick', []);  
     end
     
-    % 设置标题（可选）
     title([datasetstr(i)], 'FontSize', 18);
 end
 
 
-% 在图形窗口中添加一个共同的图例
+
 legend('SIPM-ME$^1$','SIPM-ME$^+$','SIPM-PM','SIPM-EM','SIPM-RM','IPM-FG','AM', 'FontSize', 14,  'Location','best','Interpreter','latex')
 saveas(gcf,'multitask_test.png')
 
 saveas(gcf,'multitask_test.png')
-% plot(squeeze(testtable(2,:,:))'/2,'LineWidth',2)
-% set(gca, 'FontSize', 16) % Larger font size for axis ticks
-% ylim([0.2,0.5])
-% legend('SIPM-ME$^1$','SIPM-PM','SIPM-EM','SIPM-RM','SIPM-ME$^+$','IPM-FG','AM', 'FontSize', 14,  'Location','best','Interpreter','latex') 
-% xlabel('tasks', 'FontSize', 22) % Larger font size for x-axis label
-% ylabel('relatve error', 'FontSize', 22) % Larger font size for x-axis label
+
 
         filename = ['./result/SDP222_tabelout',char(probname), num2str(n0),num2str(opts.batchsize)];
         save(filename,"fvaltable","errortable","traintable","testtable");
 
-% norm(out5.W'*out5.W/trace(out5.W'*out5.W) - out1.Omega{1},'fro');
+
 
 function [AX, AXorg] = AXmap(X, K, At, Lchol)
 AX = AXfun_sdpnal(K,At,X);
-% AX = fwsolve(Lchol, AXorg);
 end
 
 function Aty = Atymap(y, K, At, Lchol)
 Aty = Atyfun_sdpnal(K, At, y);
-% Aty = Atyfun(K, At, bwsolve(Lchol, y));
 end

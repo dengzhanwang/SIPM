@@ -64,7 +64,6 @@ for k =1
 
         fvaltable(k,j,1) = out1.ferror;
         errortable(k,j,1) = out1.error(end)/out1.error(1);
-        % timetable(k,j,1) = out1.time;
         figure(1)
         semilogy(out1.error(1:batchnum:end)/out1.error(1),'r:.' ,'LineWidth',3) % LineWidth increased to 3 for thicker lines
         hold on
@@ -75,7 +74,6 @@ for k =1
         rankx = 5
         U2 = U(:,1:rankx);
         Wnew = U2.*dS(1:rankx)';
-        % Wnew = W0(:,1:57);
         idx = kmeans(Wnew,3);
         idx2 = kmeans(W0,3);
         [U1,S1,V1] = svd(W0);
