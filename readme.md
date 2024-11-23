@@ -8,12 +8,6 @@ This implementation serves two main purposes:
 1. To reproduce the experimental results presented in our paper on Stochastic Interior-Point Methods
 2. To provide a practical implementation of stochastic IPM algorithms for smooth conic optimization problems
 
-The code includes implementations for:
-- Stochastic interior-point methods for conic optimization
-- Second-order cone programming (SOCP) experiments
-- Semidefinite programming experiments
-- Multi-task optimization scenarios
-
 ## Repository Structure
 
 ```
