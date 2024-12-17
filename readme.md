@@ -46,6 +46,20 @@ This implementation serves two main purposes:
 run Test_SDP.m
 ```
 
+#### Results
+<div style="display: flex; justify-content: space-around;">
+  <img src="./result/SDP222_ferror500covtype50.png" alt="图片1" width="200" />
+  <img src="./result/SDP222_error500covtype50.png" alt="图片2" width="200" />
+  <img src="./result/SDP222_ferror500spambase50.png" alt="图片3" width="200" />
+  <img src="./result/SDP222_error500spambase50.png" alt="图片4" width="200" />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="./result/SDP222_cluster1500covtype50.png" alt="图片1" width="200" />
+  <img src="./result/SDP222_cluster333500covtype50.png" alt="图片2" width="200" />
+  <img src="./result/SDP222_cluster666500covtype50.png" alt="图片3" width="200" />
+    <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="200" />
+</div>
 ### For SOCP Experiments:
 1. Start MATLAB
 2. Navigate to the repository root directory
@@ -58,6 +72,14 @@ or
 run Test_socp2.m
 ```
 
+#### Results
+<div style="display: flex; justify-content: space-around;">
+  <img src="./result/SOCP_ferror10000covtype500.png" alt="图片1" width="200" />
+  <img src="./result/SOCP_error10000covtype500.png" alt="图片2" width="200" />
+  <img src="./result/SOCP_ferror4000winequality-white200.png" alt="图片3" width="200" />
+  <img src="./result/SOCP_error4000winequality-white200.png" alt="图片4" width="200" />
+</div>
+
 ### For Multi-task Optimization:
 1. Start MATLAB
 2. Navigate to the repository root directory
@@ -65,6 +87,19 @@ run Test_socp2.m
 ```matlab
 run multi_task.m
 ```
+
+#### Results
+<div style="display: flex; justify-content: space-around;">
+  <img src="./result/SDP_multitask_ferror1500500.png" alt="图片1" width="200" />
+  <img src="./result/SDP_multitask_error1500500.png" alt="图片2" width="200" />
+  <img src="./result/SDP_multitask_ferror2500500.png" alt="图片3" width="200" />
+  <img src="./result/SDP_multitask_error2500500.png" alt="图片4" width="200" />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="./result/multitask_train.png" alt="图片1" width="400" />
+  <img src="./result/multitask_train.png" alt="图片2" width="400" />
+</div>
 
 ### Experiment Configuration
 - Modify parameters in the respective .m files to adjust experimental settings
