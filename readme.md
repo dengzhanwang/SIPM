@@ -81,8 +81,9 @@ run Test_SDP.m
 </div>
 <p style="text-align: center;"> Clustering results at the
 1st, 333rd, 666th, and 1000th data observation</p>
-
 <br><br>
+
+
 ### For SOCP Experiments:
 1. Start MATLAB
 2. Navigate to the repository root directory
