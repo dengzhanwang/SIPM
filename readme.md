@@ -47,14 +47,22 @@ run Test_SDP.m
 ```
 
 #### Results
-<div style="display: flex; justify-content: space-around;">
-  <img src="./result/SDP222_ferror500covtype50.png" alt="图片1" width="200" />
-  <img src="./result/SDP222_error500covtype50.png" alt="图片2" width="200" />
-  <img src="./result/SDP222_ferror500spambase50.png" alt="图片3" width="200" />
-  <img src="./result/SDP222_error500spambase50.png" alt="图片4" width="200" />
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+  <div style="text-align: center; flex: 0 0 23%;">  <!-- 设置 flex 子项宽度 -->
+    <img src="./result/SDP222_cluster1500covtype50.png" alt="图片1" width="200" />
+  </div>
+  <div style="text-align: center; flex: 0 0 23%;">  <!-- 设置 flex 子项宽度 -->
+    <img src="./result/SDP222_cluster333500covtype50.png" alt="图片2" width="200" />
+  </div>
+  <div style="text-align: center; flex: 0 0 23%;">  <!-- 设置 flex 子项宽度 -->
+    <img src="./result/SDP222_cluster666500covtype50.png" alt="图片3" width="200" />
+  </div>
+  <div style="text-align: center; flex: 0 0 23%;">  <!-- 设置 flex 子项宽度 -->
+    <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="200" />
+  </div>
 </div>
 
-
+<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
 
 <div style="display: flex; justify-content: space-around;">
