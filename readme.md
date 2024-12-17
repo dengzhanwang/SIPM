@@ -34,7 +34,6 @@ This implementation serves two main purposes:
 ## Requirements
 
 - MATLAB (R2019b or later recommended)
-- SDPT3-4.0 solver package (included in repository)
 
 ## How to Run the Code
 
