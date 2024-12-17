@@ -58,9 +58,9 @@ run Test_SDP.m
 
 </div>
 
-<div style="text-align: center;">
-Convergence behavior of the relative objective value and average relative stationary
-</div>
+<center>Convergence behavior of the relative objective value and average relative stationary</center>
+
+
 
 <br><br>
 
