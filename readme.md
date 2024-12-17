@@ -67,16 +67,16 @@ run Test_SDP.m
 
 <div style="display: flex; justify-content: space-around;">
 <div style="text-align: center;">
-  <img src="./result/SDP222_cluster1500covtype50.png" alt="图片1" width="200" />
+  <img src="./result/SDP222_cluster1500covtype50.png" alt="图片1" width="150" />
   </div>
   <div style="text-align: center;">
-  <img src="./result/SDP222_cluster333500covtype50.png" alt="图片2" width="200" />
+  <img src="./result/SDP222_cluster333500covtype50.png" alt="图片2" width="150" />
   </div>
   <div style="text-align: center;">
-  <img src="./result/SDP222_cluster666500covtype50.png" alt="图片3" width="200" />
+  <img src="./result/SDP222_cluster666500covtype50.png" alt="图片3" width="150" />
   </div>
   <div style="text-align: center;">
-    <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="200" />
+    <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="150" />
     </div>
 </div>
 <p style="text-align: center;"> Clustering results at the
