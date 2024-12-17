@@ -39,7 +39,7 @@ This implementation serves two main purposes:
 
 ### For clustering data streams problems:
 $$
-\min_{W\in\mathbb{R}^{d\times d}} \frac{1}{p}\sum_{i=1}^p\langle A_i,W\rangle + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
+\min_{W\in\mathbb{R}^{d\times d}} \frac{1}{p}\sum_{i=1}^p\{ A_i,W\} + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
 $$
 
 where $\{A_i\}_{i=1}^p$ are computed from data streams, $\tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))$ is a nonconvex regularizer that imposes low rankness, with $\tau$ and $\gamma$ as tuning parameters, and $e_d$ and $I_d$ denote the $d$-dimensional  all-one vector and the $d\times d$ identity matrix, respectively.
