@@ -40,7 +40,7 @@ This implementation serves two main purposes:
 
 ### For clustering data streams problems:
 $$
-\min_{W\in\R^{d\times d}} \frac{1}{p}\sum_{i=1}^p\langle A_i,W\rangle + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
+\min_{W\in\mathbb{R}^{d\times d}} \frac{1}{p}\sum_{i=1}^p\langle A_i,W\rangle + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
 $$
 
 1. Start MATLAB
@@ -82,7 +82,7 @@ run Test_SDP.m
 ### For robust learning with chance constraints:
 
 $$
-\min_{w\in\R^d,\theta,v\ge 0}  \frac{1}{p}\sum_{i=1}^p\phi(w^Ta_i - b_i) + \lambda_1\theta + \lambda_2 v\quad\mathrm{s.t.}\quad (w,v)\in \mathbb{Q}^{d+1},\quad (\Sigma^{1/2}w,\sqrt{\eta}\theta)\in \mathbb{Q}^{d+1},
+\min_{w\in\mathbb{R}^d,\theta,v\ge 0}  \frac{1}{p}\sum_{i=1}^p\phi(w^Ta_i - b_i) + \lambda_1\theta + \lambda_2 v\quad\mathrm{s.t.}\quad (w,v)\in \mathbb{Q}^{d+1},\quad (\Sigma^{1/2}w,\sqrt{\eta}\theta)\in \mathbb{Q}^{d+1},
 $$
 1. Start MATLAB
 2. Navigate to the repository root directory
@@ -107,7 +107,7 @@ run Test_socp2.m
 
 ### For multi-task optimization problems:
 $$
-\min_{W\in\R^{p\times d},\Sigma\in\R^{p\times p}}\frac{1}{p}\sum_{i=1}^p \frac{1}{m} \sum_{j=1}^{m}\ell(w_i,a_{ij}) + \lambda\mathrm{tr}(W^TP(\Sigma)W) \quad \mathrm{s.t.}\quad \Sigma\in\mathbb{S}_+^p,\quad \mathrm{tr}(\Sigma)=1,  
+\min_{W\in\mathbb{R}^{p\times d},\Sigma\in\mathbb{R}^{p\times p}}\frac{1}{p}\sum_{i=1}^p \frac{1}{m} \sum_{j=1}^{m}\ell(w_i,a_{ij}) + \lambda\mathrm{tr}(W^TP(\Sigma)W) \quad \mathrm{s.t.}\quad \Sigma\in\mathbb{S}_+^p,\quad \mathrm{tr}(\Sigma)=1,  
 $$
 
 1. Start MATLAB
