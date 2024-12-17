@@ -89,18 +89,10 @@ run Test_socp2.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
-<div style="text-align: center;">
   <img src="./result/SOCP_ferror10000covtype500.png" alt="图片1" width="200" />
-  </div>
-  <div style="text-align: center;">
   <img src="./result/SOCP_error10000covtype500.png" alt="图片2" width="200" />
-  </div>
-  <div style="text-align: center;">
   <img src="./result/SOCP_ferror4000winequality-white200.png" alt="图片3" width="200" />
-  </div>
-  <div style="text-align: center;">
   <img src="./result/SOCP_error4000winequality-white200.png" alt="图片4" width="200" />
-  </div>
 </div>
 <p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
@@ -115,29 +107,17 @@ run multi_task.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
-<div style="text-align: center;">
   <img src="./result/SDP_multitask_ferror1500500.png" alt="图片1" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP_multitask_error1500500.png" alt="图片2" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP_multitask_ferror2500500.png" alt="图片3" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP_multitask_error2500500.png" alt="图片4" width="200" />
-  </div>
 </div>
 <p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
 
 <div style="display: flex; justify-content: space-around;">
-<div style="text-align: center;">
   <img src="./result/multitask_train.png" alt="图片1" width="400" />
-  </div>
-  <div style="text-align: center;">
   <img src="./result/multitask_train.png" alt="图片2" width="400" />
-  </div>
 </div>
 
 <p style="text-align: center;"> Loss per task for the training (left five) and validation (right five) datasets</p>
