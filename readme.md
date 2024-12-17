@@ -48,18 +48,41 @@ run Test_SDP.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
+<div style="text-align: center;">
   <img src="./result/SDP222_ferror500covtype50.png" alt="图片1" width="200" />
+</div>
+  <div style="text-align: center;">
   <img src="./result/SDP222_error500covtype50.png" alt="图片2" width="200" />
+</div>
+  <div style="text-align: center;">
   <img src="./result/SDP222_ferror500spambase50.png" alt="图片3" width="200" />
+</div>
+  <div style="text-align: center;">
   <img src="./result/SDP222_error500spambase50.png" alt="图片4" width="200" />
+  </div>
 </div>
 
+<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+<br><br>
+
 <div style="display: flex; justify-content: space-around;">
+<div style="text-align: center;">
   <img src="./result/SDP222_cluster1500covtype50.png" alt="图片1" width="200" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/SDP222_cluster333500covtype50.png" alt="图片2" width="200" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/SDP222_cluster666500covtype50.png" alt="图片3" width="200" />
+  </div>
+  <div style="text-align: center;">
     <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="200" />
+    </div>
 </div>
+<p style="text-align: center;"> Clustering results at the
+1st, 333rd, 666th, and 1000th data observation</p>
+
+<br><br>
 ### For SOCP Experiments:
 1. Start MATLAB
 2. Navigate to the repository root directory
@@ -74,11 +97,21 @@ run Test_socp2.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
+<div style="text-align: center;">
   <img src="./result/SOCP_ferror10000covtype500.png" alt="图片1" width="200" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/SOCP_error10000covtype500.png" alt="图片2" width="200" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/SOCP_ferror4000winequality-white200.png" alt="图片3" width="200" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/SOCP_error4000winequality-white200.png" alt="图片4" width="200" />
+  </div>
 </div>
+<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+<br><br>
 
 ### For Multi-task Optimization:
 1. Start MATLAB
@@ -90,16 +123,33 @@ run multi_task.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
+<div style="text-align: center;">
   <img src="./result/SDP_multitask_ferror1500500.png" alt="图片1" width="200" />
-  <img src="./result/SDP_multitask_error1500500.png" alt="图片2" width="200" />
-  <img src="./result/SDP_multitask_ferror2500500.png" alt="图片3" width="200" />
-  <img src="./result/SDP_multitask_error2500500.png" alt="图片4" width="200" />
 </div>
+  <div style="text-align: center;">
+  <img src="./result/SDP_multitask_error1500500.png" alt="图片2" width="200" />
+</div>
+  <div style="text-align: center;">
+  <img src="./result/SDP_multitask_ferror2500500.png" alt="图片3" width="200" />
+</div>
+  <div style="text-align: center;">
+  <img src="./result/SDP_multitask_error2500500.png" alt="图片4" width="200" />
+  </div>
+</div>
+<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+<br><br>
 
 <div style="display: flex; justify-content: space-around;">
+<div style="text-align: center;">
   <img src="./result/multitask_train.png" alt="图片1" width="400" />
+  </div>
+  <div style="text-align: center;">
   <img src="./result/multitask_train.png" alt="图片2" width="400" />
+  </div>
 </div>
+
+<p style="text-align: center;"> Loss per task for the training (left five) and validation (right five) datasets</p>
+<br><br>
 
 ### Experiment Configuration
 - Modify parameters in the respective .m files to adjust experimental settings
