@@ -41,6 +41,7 @@ This implementation serves two main purposes:
 $$
 \min_{W\in\mathbb{R}^{d\times d}} \frac{1}{p}\sum_{i=1}^p\langle A_i,W\rangle + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
 $$
+where $\{A_i\}_{i=1}^p$ are computed from data streams, $\tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))$ is a nonconvex regularizer that imposes low rankness, with $\tau$ and $\gamma$ as tuning parameters, and $e_d$ and $I_d$ denote the $d$-dimensional  all-one vector and the $d\times d$ identity matrix, respectively.
 
 1. Start MATLAB
 2. Navigate to the repository root directory
@@ -83,6 +84,7 @@ run Test_SDP.m
 $$
 \min_{w\in\mathbb{R}^d,\theta,v\ge 0}  \frac{1}{p}\sum_{i=1}^p\phi(w^Ta_i - b_i) + \lambda_1\theta + \lambda_2 v\quad\mathrm{s.t.}\quad (w,v)\in \mathbb{Q}^{d+1},\quad (\Sigma^{1/2}w,\sqrt{\eta}\theta)\in \mathbb{Q}^{d+1},
 $$
+where $\phi(\cdot)$ is the loss, $\lambda_1,\lambda_2>0$ are tuning parameters, and $\mathbb{Q}^{d+1}\doteq\{(u,t)\in\mathbb{R}^d\times\mathbb{R}_+:\|u\|\le t\}$ denotes the second-order cone.
 1. Start MATLAB
 2. Navigate to the repository root directory
 3. Execute either:
@@ -108,6 +110,7 @@ run Test_socp2.m
 $$
 \min_{W\in\mathbb{R}^{p\times d},\Sigma\in\mathbb{R}^{p\times p}}\frac{1}{p}\sum_{i=1}^p \frac{1}{m} \sum_{j=1}^{m}\ell(w_i,a_{ij}) + \lambda\mathrm{tr}(W^TP(\Sigma)W) \quad \mathrm{s.t.}\quad \Sigma\in\mathbb{S}_+^p,\quad \mathrm{tr}(\Sigma)=1,  
 $$
+where $W = [w_1, \ldots, w_p]^T$, $\mathbb{S}^p_+$ denotes the positive semidefinite cone, $\ell(\cdot, \cdot)$ is the loss function, $w_i$ and $\{a_{ij}\}_{j=1}^{m}$ are respectively the model weight and the training set for the $i$th task, $1 \le i \le p$, $\lambda>0$ is a tuning parameter, $P : \mathbb{R}^{p \times p} \to \mathbb{R}^{p \times p}$ is a given map that controls the interaction between $W$ and $\Omega$, and $\mathrm{tr}(\cdot)$ denotes the trace of a matrix.
 
 1. Start MATLAB
 2. Navigate to the repository root directory
