@@ -48,21 +48,13 @@ run Test_SDP.m
 
 #### Results
 <div style="display: flex; justify-content: space-around;">
-<div style="text-align: center;">
   <img src="./result/SDP222_ferror500covtype50.png" alt="图片1" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP222_error500covtype50.png" alt="图片2" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP222_ferror500spambase50.png" alt="图片3" width="200" />
-</div>
-  <div style="text-align: center;">
   <img src="./result/SDP222_error500spambase50.png" alt="图片4" width="200" />
-  </div>
 </div>
 
-<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+
 <br><br>
 
 <div style="display: flex; justify-content: space-around;">
