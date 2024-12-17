@@ -38,7 +38,11 @@ This implementation serves two main purposes:
 
 ## How to Run the Code
 
-### For SDP Experiments:
+### For clustering data streams problems:
+$$
+\min_{W\in\R^{d\times d}} \frac{1}{p}\sum_{i=1}^p\langle A_i,W\rangle + \tau\sum_{i=1}^d\ln(\gamma +\lambda_i(W))\ \ \mathrm{s.t.}\ \ W\in\mathbb{S}^{d}_+,\ \ We_d = e_d,\ \ \langle I_d,W\rangle=k,
+$$
+
 1. Start MATLAB
 2. Navigate to the repository root directory
 3. Run the following command:
@@ -75,7 +79,11 @@ run Test_SDP.m
 1st, 333rd, 666th, and 1000th data observation</center>
 
 
-### For SOCP Experiments:
+### For robust learning with chance constraints:
+
+$$
+\min_{w\in\R^d,\theta,v\ge 0}  \frac{1}{p}\sum_{i=1}^p\phi(w^Ta_i - b_i) + \lambda_1\theta + \lambda_2 v\quad\mathrm{s.t.}\quad (w,v)\in \mathbb{Q}^{d+1},\quad (\Sigma^{1/2}w,\sqrt{\eta}\theta)\in \mathbb{Q}^{d+1},
+$$
 1. Start MATLAB
 2. Navigate to the repository root directory
 3. Execute either:
@@ -97,7 +105,11 @@ run Test_socp2.m
 <p style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
 
-### For Multi-task Optimization:
+### For multi-task optimization problems:
+$$
+\min_{W\in\R^{p\times d},\Sigma\in\R^{p\times p}}\frac{1}{p}\sum_{i=1}^p \frac{1}{m} \sum_{j=1}^{m}\ell(w_i,a_{ij}) + \lambda\mathrm{tr}(W^TP(\Sigma)W) \quad \mathrm{s.t.}\quad \Sigma\in\mathbb{S}_+^p,\quad \mathrm{tr}(\Sigma)=1,  
+$$
+
 1. Start MATLAB
 2. Navigate to the repository root directory
 3. Execute:
