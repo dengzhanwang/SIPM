@@ -58,7 +58,7 @@ run Test_SDP.m
 
 </div>
 
-<center>Convergence behavior of the relative objective value and average relative stationary</center>
+<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Convergence behavior of the relative objective value and average relative stationary</center>
 
 
 
@@ -71,7 +71,7 @@ run Test_SDP.m
   <img src="./result/SDP222_cluster1000500covtype50.png" alt="图片4" width="200" />
 </div>
 
-<center>Clustering results at the
+<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clustering results at the
 1st, 333rd, 666th, and 1000th data observation</center>
 
 
@@ -94,7 +94,7 @@ run Test_socp2.m
   <img src="./result/SOCP_ferror4000winequality-white200.png" alt="图片3" width="200" />
   <img src="./result/SOCP_error4000winequality-white200.png" alt="图片4" width="200" />
 </div>
-<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+<p style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
 
 ### For Multi-task Optimization:
@@ -112,7 +112,7 @@ run multi_task.m
   <img src="./result/SDP_multitask_ferror2500500.png" alt="图片3" width="200" />
   <img src="./result/SDP_multitask_error2500500.png" alt="图片4" width="200" />
 </div>
-<p style="text-align: center;">Convergence behavior of the relative objective value and average relative stationary</p>
+<p style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Convergence behavior of the relative objective value and average relative stationary</p>
 <br><br>
 
 <div style="display: flex; justify-content: space-around;">
@@ -120,7 +120,7 @@ run multi_task.m
   <img src="./result/multitask_train.png" alt="图片2" width="400" />
 </div>
 
-<p style="text-align: center;"> Loss per task for the training (left five) and validation (right five) datasets</p>
+<p style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Loss per task for the training (left five) and validation (right five) datasets</p>
 <br><br>
 
 ### Experiment Configuration
