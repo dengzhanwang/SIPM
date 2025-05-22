@@ -77,7 +77,7 @@ run Test_SDP.m
 </div>
 
 <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clustering results at the
-1st, 333rd, 666th, and 1000th data observation</center>
+1st, 333rd, 666th, and 1000th data observations</center>
 
 
 ### For robust learning with chance constraints:
