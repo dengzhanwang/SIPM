@@ -33,7 +33,7 @@ This implementation serves two main purposes:
 
 ## Requirements
 
-- MATLAB (R2019b or later recommended)
+- MATLAB (R2020b or later recommended)
 
 ## How to Run the Code
 

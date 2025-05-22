@@ -12,8 +12,7 @@ pall = [1 2];
 n0all = [200 500];
 
 p = 2;
-for p = 1
-    for k = 2
+k = 2;
 n0 = n0all(k);
 [blk, data, At ] = multitask_read2('winequality-red.csv','winequality-white.csv','ENB2012_data.xlsx','AirQualityUCI.xlsx','abalone.data',n0,p);
 

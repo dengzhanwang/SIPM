@@ -59,4 +59,3 @@ end
 
 filename = ['./result/SOCP_table',char(probname), num2str(n0),num2str(opts.batchsize),];
 save(filename,"fvaltable","errortable","timetable");
-1;
