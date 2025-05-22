@@ -38,7 +38,7 @@ for i = 1:opts.maxiter
         lambdagradient1 = zeros(2*n+2,1);
         lambdagradient1(1) = lambda1;
         lambdagradient1(n+2) = lambda2;
-        gradient = tmpgradient +  lambdagradient1 - muk * invx;
+        gradient = tmpgradient +  lambdagradient1 - muk * (invx + tmpgradient);
     elseif strcmp(opts.methods,'mom')
         % x(1) = min( norm(x(2:n+1))+1,x(1) );
         det1 = x(1)^2 - x(2:n+1)'*x(2:n+1);
@@ -55,7 +55,7 @@ for i = 1:opts.maxiter
         % lambdagradient2 = zeros(2*n,1);
         lambdagradient1(1) = lambda1;
         lambdagradient1(n+2) = lambda2;
-        gradientnew = tmpgradient +  lambdagradient1 - muk * invx;
+        gradientnew = tmpgradient +  lambdagradient1 - muk * (invx + tmpgradient);
         if i ==  1
             gradient = gradientnew;
         end
@@ -72,12 +72,10 @@ for i = 1:opts.maxiter
         tmpgradient = 2*tmpgradient./(1+tmpgradient.^2).^2;
         tmpgradient = [0; tmpgradient; zeros(size(tmpgradient,1)+1,1) ];
         tt = tmpgradient;
-        % tmpgradient = tmpC'*(tmpC -y) /batchsize;
         lambdagradient1 = zeros(2*n+2,1);
-        % lambdagradient2 = zeros(2*n,1);
         lambdagradient1(1) = lambda1;
         lambdagradient1(n+2) = lambda2;
-        gradientnew = tmpgradient +  lambdagradient1 - muk * invx;
+        gradientnew = tmpgradient +  lambdagradient1 - muk * (invx + tmpgradient);
         if i ==  1
             gradient = gradientnew;
         end
@@ -99,8 +97,7 @@ for i = 1:opts.maxiter
             gradientbar = gradientnew;
         end
         gradientbar = gradientnew + (1 - gamma)* (gradientbar - gradientnew);
-        gradientbar = min(1, opts.radius)*gradientbar;
-        gradient = gradientbar - muk * invx;
+        gradient = gradientbar - muk * (invx + tmpgradient);
     end
 
     tmp{1} = 2*[x(1:n+1)*(x(1:n+1)'*gradient(1:n+1)) ; x(n+2:2*n+2)*(x(n+2:2*n+2)'*gradient(n+2:2*n+2))]  - [ det1*[gradient(1);-gradient(2:n+1)];det2*[gradient(n+2);-gradient(n+3:end) ]];

@@ -37,7 +37,7 @@ for i = 1:opts.maxiter
         if strcmp(blk{1},'s')
             [U, S] = eig(x{1});
             invxv = U * diag(1./diag(S)) * U';
-            gradient = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'  - muk * invxv;
+            gradient = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'  - muk * (invxv+sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)));
         elseif strcmp(blk{1},'l')
             tmpg = [ ones(length(x{1})/2,1) ; zeros(length(x{1})/2,1) ];
             gradient = sum(Csto(:,:,batch),3)/batchsize*x{1} - tmpg  - muk * 1./x{1};
@@ -46,7 +46,7 @@ for i = 1:opts.maxiter
         if strcmp(blk{1},'s')
             [U, S] = eig(x{1});
             invxv = U * diag(1./diag(S)) * U';
-            gradientnew = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'   - muk * invxv;
+            gradientnew = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'   - muk * (invxv + sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)));
         elseif strcmp(blk{1},'l')
             tmpg = [ ones(length(x{1})/2,1) ; zeros(length(x{1})/2,1) ];
             gradientnew = sum(Csto(:,:,batch),3)/batchsize*x{1} - tmpg  - muk * 1./x{1};
@@ -60,7 +60,7 @@ for i = 1:opts.maxiter
         if strcmp(blk{1},'s')
             [U, S] = eig(z{1});
             invxv = U * diag(1./diag(S)) * U';
-            gradientnew = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'   - muk * invxv;
+            gradientnew = sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)) * U'   - muk * (invxv + sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)));
         elseif strcmp(blk{1},'l')
             tmpg = [ ones(length(x{1})/2,1) ; zeros(length(x{1})/2,1) ];
             gradientnew = sum(Csto(:,:,batch),3)/batchsize*z{1} - tmpg  - muk * 1./z{1};
@@ -78,8 +78,7 @@ for i = 1:opts.maxiter
                 gradientbar = gradientnew;
             end
             gradientbar = gradientnew + (1 - gamma)* (gradientbar - gradientnew);
-            gradientbar = min(1, opts.radius/norm(gradientbar*x{1},'fro'))*gradientbar;
-            gradient = gradientbar - muk * invxv;
+            gradient = gradientbar - muk * (invxv + sum(Csto(:,:,batch),3)/batchsize + kappa* U * diag(diag(S)./diag(1+S)));
         elseif strcmp(blk{1},'l')
             tmpg = [ ones(length(x{1})/2,1) ; zeros(length(x{1})/2,1) ];
             gradientnew = sum(Csto(:,:,batch),3)/batchsize*x{1} - tmpg;

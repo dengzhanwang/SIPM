@@ -45,14 +45,10 @@ for i = 1:opts.maxiter
         train_label = data.train_label5;
         batchsize = length(train_label);
     end
-    % batchnum = mod(i,10);
-    % batchnum = 0;
-    % batch = batchnum*batchsize + 1: batchsize*(batchnum+1);
     if strcmp(opts.methods,'sto')
         [U, S] = eig(Omega{1});
         invomega = U * diag(1./(diag(S)+0.01)) * U';
         tmpW = W*invomega;
-        % invomega = inv(Omega);
         if mod(i,5) + 1 == 2
             tmpgradient = train_set'*(train_set*W(:,1)-train_label); 
             gradient1 = 2*tmpgradient./(1+tmpgradient.^2)/batchsize*1e4;
@@ -83,7 +79,7 @@ for i = 1:opts.maxiter
             gradient1 = gradient1 + opts.lambda1*W(:,5) + opts.lambda2*tmpW(:,5);
             gradient1 = [zeros(size(gradient1)),zeros(size(gradient1)), zeros(size(gradient1)),zeros(size(gradient1)),gradient1];
         end
-        gradient =  -opts.lambda2* invomega*W'*W*invomega   - muk * invomega;
+        gradient =  -opts.lambda2* invomega*W'*W*invomega   - muk * (invomega + gradientbar);
     elseif strcmp(opts.methods,'mom')
         [U, S] = eig(Omega{1});
         invomega = U * diag(1./(diag(S)+0.01)) * U';
@@ -105,7 +101,7 @@ for i = 1:opts.maxiter
             gradient1 = train_set'*(train_set*W(:,5)-train_label)/batchsize + opts.lambda1*W(:,5) + opts.lambda2*tmpW(:,5);
             gradient1 = [zeros(size(gradient1)),zeros(size(gradient1)), zeros(size(gradient1)),zeros(size(gradient1)),gradient1];
         end
-        gradientnew =  -opts.lambda2* invomega*W'*W*invomega   - muk * invomega;
+        gradientnew =  -opts.lambda2* invomega*W'*W*invomega   -  muk * (invomega + gradientbar);
         if i ==  1
             gradient = gradientnew;
         end
@@ -134,7 +130,7 @@ for i = 1:opts.maxiter
             gradient1 = train_set'*(train_set*W(:,5)-train_label)/batchsize + opts.lambda1*W(:,5) + opts.lambda2*tmpW(:,5);
             gradient1 = [zeros(size(gradient1)),zeros(size(gradient1)), zeros(size(gradient1)),zeros(size(gradient1)),gradient1];
         end
-        gradient =  -opts.lambda2* invomega*Wz'*Wz*invomega   - muk * invomega;
+        gradient =  -opts.lambda2* invomega*Wz'*Wz*invomega   - muk * (invomega + gradientbar);
     elseif strcmp(opts.methods,'recursiv')
         [U, S] = eig(Omega{1});
         invomega = U * diag(1./(diag(S)+0.01)) * U';
@@ -161,8 +157,7 @@ for i = 1:opts.maxiter
             gradientbar = gradientnew;
         end
         gradientbar = gradientnew + (1 - gamma)* (gradientbar - gradientnew);
-        gradientbar = min(1, opts.radius)*gradientbar;
-        gradient = gradientbar - muk * invomega;
+        gradient = gradientbar - muk * (invomega + gradientbar);
     end
 
     tmp{1} = Omega{1}*gradient*Omega{1};
