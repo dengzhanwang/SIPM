@@ -47,10 +47,10 @@ out1 = sto_ipm_multi_task3(blk,x0,data,At,b,opts);
 
 
 
-function [AX, AXorg] = AXmap(X, K, At, Lchol)
+function [AX] = AXmap(X, K, At)
 AX = AXfun_sdpnal(K,At,X);
 end
 
-function Aty = Atymap(y, K, At, Lchol)
+function Aty = Atymap(y, K, At)
 Aty = Atyfun_sdpnal(K, At, y);
 end
